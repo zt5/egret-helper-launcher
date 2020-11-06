@@ -1,0 +1,96 @@
+{
+	"name": "egret-helper-launcher",
+	"displayName": "Egret Helper Launcher",
+	"description": "快捷调用 egret launcher的项目发布，项目创建等页面",
+	"version": "1.0.0",
+	"engines": {
+		"vscode": "^1.45.0"
+	},
+	"categories": [
+		"Extension Packs",
+		"Other"
+	],
+	"icon": "images/icon.png",
+	"keywords": [
+		"egret"
+	],
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./out/extension.js",
+	"publisher": "zt5",
+	"repository": "https://github.com/zt5/egret-helper-project",
+	"contributes": {
+		"commands": [
+			{
+				"command": "egret-helper-launcher.create",
+				"title": "调出Egret Launcher的创建项目页面",
+				"icon": "./images/icon.png"
+			},
+			{
+				"command": "egret-helper-launcher.publish",
+				"title": "调出Egret Launcher的发布项目页面",
+				"icon": "./images/icon.png"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Egret Helper",
+			"properties": {
+				"egret-helper.enable": {
+					"type": "boolean",
+					"default": true,
+					"description": "插件是否可用"
+				},
+				"egret-helper.devlog": {
+					"type": "boolean",
+					"default": false,
+					"description": "是否打印详细日志"
+				}
+			}
+		},
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "egretProject",
+					"title": "Egret Launcher",
+					"icon": "images/icon.png"
+				}
+			]
+		},
+		"views": {
+			"egretProject": [
+				{
+					"id": "egretProject",
+					"name": "",
+					"icon": "images/icon.png",
+					"contextualTitle": "Egret Project"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"package": "vsce package"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.1",
+		"@types/node": "^12.12.0",
+		"@types/semver": "^7.3.4",
+		"@types/vscode": "^1.45.0",
+		"@types/opn": "^5.5.0",
+		"@typescript-eslint/eslint-plugin": "^3.0.2",
+		"@typescript-eslint/parser": "^3.0.2",
+		"eslint": "^7.1.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.0.1",
+		"typescript": "^4.0.2",
+		"vsce": "^1.79.5"
+	},
+	"dependencies": {
+		"opn": "^6.0.0",
+		"semver": "^7.3.2"
+	}
+}
